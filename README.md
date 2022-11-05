@@ -32,20 +32,21 @@ SOFTWARE.
 
 ## Contents
 
-### Windows
+To install my development environment, I first install [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/) on Windows. I follow the steps in this [Microsoft tutorial](https://learn.microsoft.com/en-us/windows/wsl/install).
 
-| Description                                     | Link                                                    |
-| ----------------------------------------------- | --------------------------------------------------------|
-| About Windows Subsystem for Linux Documentation | (https://learn.microsoft.com/en-us/windows/wsl/)        |
-| Install Linux on Windows with WSL               | (https://learn.microsoft.com/en-us/windows/wsl/install) |
-| Install Debian on Windows WSL                   | () |
+I like [Debian](https://www.debian.org/) Linux Distribution, so I use this command:
 
-### Linux
+| Powershell |
+| ------------------------- |
+| `wls --install -d Debian` |
 
-| Description                                     | Link                                                    |
-| ----------------------------------------------- | --------------------------------------------------------|
-| About Windows Subsystem for Linux Documentation | (https://learn.microsoft.com/en-us/windows/wsl/)        |
+At the end of the installation, `wls` will open a shell window asking for the username and password. This password will be used to give you [sudo](https://www.sudo.ws/) access to Linux, so don't forget it.
 
+Once you set the username and password, take the opportunity to update Debian:
+
+| Bash |
+| ------------------------- |
+| `sudo apt update && sudo apt upgrade` |
 
 ## Did you like this content? Buy me a coffee!
 
