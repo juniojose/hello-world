@@ -48,6 +48,10 @@ Once you set the username and password, take the opportunity to update Debian:
 | ------------------------- |
 | `sudo apt update && sudo apt upgrade` |
 
+I like use [Hyper](https://hyper.is/) Terminal. To install, [download](https://hyper.is/#installation) the appropriate version and install it normally like any other program for Windows.
+
+Once you’ve got Hyper installed, open the `.hyper.js` configuration file and make one key change. To do this, open Hyper (look at the Windows start bar), click on the sandwich menu (at the top left of the Hyper window [figure 1]).
+
 ## Did you like this content? Buy me a coffee!
 
 <div>
