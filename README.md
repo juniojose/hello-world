@@ -254,8 +254,8 @@ Access mysql for a user configuration:
 
 | MySQL |
 | ----- |
-| ` CREATE USER 'a-user-name'@'localhost' IDENTIFIED BY "a-password";` |
-| ` CREATE DATABASE test;` |
+| `CREATE USER 'a-user-name'@'localhost' IDENTIFIED BY "a-password";` |
+| `CREATE DATABASE test;` |
 | `GRANT ALL PRIVILEGES ON test.* TO 'a-user-name'@'localhost';` |
 | `FLUSH PRIVILEGES;` |
 | `QUIT` |
@@ -324,7 +324,168 @@ Start Apache:
 | ---- |
 | `sudo service apache2 start` |
 
-Check if it's working: open a browser and access the `localhost` address. You should see a page [You should see a page](http://localhost/).
+Check if it's working: open a browser and access the `localhost` address. [You should see a Apache page](http://localhost/).
+
+Removing the Apache index.html page:
+
+| Bash |
+| ---- |
+| `cd /var/www/html` |
+| `sudo rm index.html` |
+
+Set file permission. Let's add our user to the apache group `www-data`:
+
+| Bash |
+| ---- |
+| `sudo adduser $USER www-data` |
+
+### Install [PHP](https://www.php.net/)
+
+| Bash |
+| ---- |
+| `sudo apt install php libapache2-mod-php php-mysql` |
+
+Check it:
+
+| Bash |
+| ---- |
+| `sudo service apache2 restart` |
+| `sudo nano index.php` |
+
+| [Nano](https://www.nano-editor.org/) |
+| ---- |
+| `<?php phpinfo(); ?>` |
+
+Save and exit nano. Open a browser and access the `localhost` address.
+
+Remove phpinfo index.php:
+
+| Bash |
+| ---- |
+| `cd /var/www/html` |
+| `sudo rm index.php` |
+
+### Install [phpmyadmin](https://www.phpmyadmin.net/)
+
+| Bash |
+| ---- |
+| `sudo apt update` |
+| `sudo apt install phpmyadmin php-mbstring php-gd php-mcrypt` |
+| `sudo nano /etc/apache2/apache2.conf` |
+
+Now insert the `Include /etc/phpmyadmin/apache.conf` at the end of `apache2.conf` file:
+
+| Nano |
+| ---- |
+| `Include /etc/phpmyadmin/apache.conf` |
+
+Check it:
+
+| Bash |
+| ---- |
+| `sudo service apache2 restart` |
+
+Open a browser and access the `localhost/phpmyadmin` address.
+
+### Activating [mod_rewrite](https://httpd.apache.org/docs/current/mod/mod_rewrite.html)
+
+| Bash |
+| ---- |
+| `sudo a2enmod rewrite` |
+| `sudo service apache2 restart` |
+
+### Enable the [SSL](https://httpd.apache.org/docs/2.4/ssl/ssl_howto.html) module
+
+Enable the module in apache:
+
+| Bash |
+| ---- |
+| `sudo a2enmod ssl` |
+| `sudo service apache2 restart` |
+| `sudo mkdir /etc/apache2/ssl` |
+
+Creating a local certificate:
+
+| Bash |
+| ---- |
+| `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt` |
+
+Configuring apache to use this certificate:
+
+- Open the `default-ssl.conf` file: `sudo nano /etc/apache2/sites-available/default-ssl.conf`
+
+- Erase all file content and put:
+
+````
+<IfModule mod_ssl.c>
+ <VirtualHost _default_:443>
+  ServerAdmin webmaster@localhost
+  ServerName localhost
+  DocumentRoot /var/www/html
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined  
+  SSLEngine on
+  SSLCertificateFile /etc/apache2/ssl/apache.crt   
+  SSLCertificateKeyFile /etc/apache2/ssl/apache.key
+  <FilesMatch "\.(cgi|shtml|phtml|php)$">
+   SSLOptions +StdEnvVars
+  </FilesMatch>
+  <Directory /var/www/html>
+   SSLOptions +StdEnvVars
+   DirectoryIndex index.php
+   AllowOverride All
+   Order allow,deny
+   Allow from all
+  </Directory>
+  BrowserMatch "MSIE [2-6]" \
+          nokeepalive ssl-unclean-shutdown \     
+          downgrade-1.0 force-response-1.0       
+  BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+ </VirtualHost>
+</IfModule>
+````
+
+- Enable file settings:
+
+| Bash |
+| ---- |
+| `sudo a2ensite default-ssl.conf` |
+| `sudo service apache2 reload` |
+
+- Check it:
+
+Open a browser and access the `https://localhost` address.
+
+The "Not secure" message will keep popping up, but that's not a problem because it only shows for me.
+
+### Wordpress on /var/www/html
+
+| Bash |
+| ---- |
+| `cd /var/www/html` |
+| `sudo wget https://wordpress.org/latest.tar.gz` |
+| `sudo tar -vzxf latest.tar.gz` |
+| `sudo rm latest.tar.gz` |
+| `sudo chown -R $USER:www-data wordpress/` |
+| `sudo find wordpress/ -type d -exec chmod 775 {} + ;` |
+| `sudo find wordpress/ -type f -exec chmod 664 {} + ;` |
+
+Create a database for wordpress:
+
+| Bash |
+| ---- |
+| `sudo mysql` |
+
+| MySQL |
+| ----- |
+| `CREATE DATABASE wordpress;` |
+| `GRANT ALL PRIVILEGES ON wordpress.* TO 'a-user-name'@'localhost';` |
+| `FLUSH PRIVILEGES;` |
+| `QUIT` |
+
+Check it:
+
+Open a browser and access the `https://localhost/wordpress` address.
 
 ## Did you like this content? Buy me a coffee!
 
