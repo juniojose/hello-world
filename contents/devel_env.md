@@ -21,3 +21,5 @@
 [Install PHP on WSL](/contents/devel_env_install_php_on_wsl)
 
 [Install phpmyadmin on WSL](/contents/devel_env_install_phpmyadmin_on_wsl)
+
+[Install Wordpress on WSL](/contents/devel_env_install_wordpress_on_wsl)
