@@ -40,5 +40,4 @@ Support the author to create more educational materials. Send me a Brazilian PIX
 
 ## Contact
 
-[My LinkedIn](/images/LinkedIn_Logo.svg.png)
 [![My LinkedIn](/images/LinkedIn_Logo.svg.png "LinkedIn logo")](https://www.linkedin.com/in/juniojose/)
