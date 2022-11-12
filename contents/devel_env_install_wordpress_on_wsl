@@ -6,7 +6,7 @@
 | `sudo wget https://wordpress.org/latest.tar.gz` |
 | `sudo tar -vzxf latest.tar.gz` |
 | `sudo rm latest.tar.gz` |
-| `sudo chown -R $USER:www-data wordpress/` |
+| `sudo chown -R www-data:www-data wordpress/` |
 | `sudo find wordpress/ -type d -exec chmod 775 {} \;` |
 | `sudo find wordpress/ -type f -exec chmod 664 {} \;` |
 
