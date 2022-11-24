@@ -18,7 +18,7 @@ Once you set the username and password, take the opportunity to update Debian:
 
 #### Important notes
 
-- If you shut down or restart your computer, you will need restart your Linux installation. When necessary, use this command:
+- If you shut down or restart your computer, maybe you will need restart your Linux installation. When necessary, use this command:
 
 | Powershell |
 | ------------------------- |
