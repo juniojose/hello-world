@@ -33,7 +33,6 @@ SOFTWARE.
 ## Contents
 
 [Development environment](/contents/devel_env.md)
-[Node,jsthings](/hello-world-by-junio-jose/)
 
 ## Did you like this content? Buy me a coffee
 
