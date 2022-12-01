@@ -33,6 +33,7 @@ SOFTWARE.
 ## Contents
 
 [Development environment](/contents/devel_env.md)
+[Node.js contents](/contents/nodejs.md)
 
 ## Did you like this content? Buy me a coffee
 
