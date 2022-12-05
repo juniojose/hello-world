@@ -9,6 +9,12 @@
 | `npm install <nodeversion>` |
 | `npm init` |
 
+## Install [Fastify](https://www.fastify.io/)
+
+| Bash |
+| ---- |
+| `npm install fastify` |
+
 ## Install [hapi](https://hapi.dev/)
 
 | Bash |
