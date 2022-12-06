@@ -3,27 +3,35 @@
 | Bash |
 | ---- |
 | `sudo apt update` |
-| `sudo apt install mysql-server` |
+| `sudo apt install default-mysql-server` |
 
 Check the installed mysql version with command `mysql --version`. Something like *mysql  Ver 15.1 Distrib 10.1.48-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2* should be returned, otherwise something went wrong.
 
-Initialize mysql with command:
+Initialize mariadb with command:
 
 | Bash |
 | ---- |
-| `sudo service mysql restart` |
+| `sudo service mariadb restart` |
 
-To check mysql status use command:
+To check mariadb status use command:
 
 | Bash |
 | ---- |
-| `sudo service mysql status` |
+| `sudo service mariadb status` |
 
 Start the security script prompts:
 
 | Bash |
 | ---- |
 | `sudo mysql_secure_installation` |
+
+1. `Enter current password for root (enter for none):` `enter`
+2. `Switch to unix_socket authentication [Y/n]` `n`
+3. `Change the root password? [Y/n]` `n`
+4. `Remove anonymous users? [Y/n]` `n`
+5. `Disallow root login remotely? [Y/n]` `Y`
+6. `Remove test database and access to it? [Y/n]` `n`
+7. `Reload privilege tables now? [Y/n]` `Y`
 
 Access mysql for a user configuration:
 
