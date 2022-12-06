@@ -10,11 +10,21 @@ I like [Debian](https://www.debian.org/) Linux Distribution, so I use this comma
 
 At the end of the installation, `wls` will open a shell window asking for the username and password. This password will be used to give you [sudo](https://www.sudo.ws/) access to Linux, so don't forget it.
 
+## Preparing to upgrade for Debian testing version
+
+| Bash |
+| ---- |
+| `sudo nano /etc/apt/sources.list` |
+
+Change the entire contents to: `deb http://deb.debian.org/debian/ testing main contrib non-free`
+
+## Full Updating
+
 Once you set the username and password, take the opportunity to update Debian:
 
 | Bash |
 | ------------------------- |
-| `sudo apt update && sudo apt upgrade` |
+| `sudo apt update && sudo apt full-upgrade` |
 
 #### Important notes
 
