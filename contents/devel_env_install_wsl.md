@@ -6,7 +6,7 @@ I like [Debian](https://www.debian.org/) Linux Distribution, so I use this comma
 
 | Powershell |
 | ------------------------- |
-| `wls --install -d Debian` |
+| `wsl --install -d Debian` |
 
 At the end of the installation, `wls` will open a shell window asking for the username and password. This password will be used to give you [sudo](https://www.sudo.ws/) access to Linux, so don't forget it.
 
