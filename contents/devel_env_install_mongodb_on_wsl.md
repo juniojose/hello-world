@@ -7,11 +7,11 @@
 | `cd ~` |
 | `sudo apt update` |
 | `sudo apt install gnupg2 wget curl` |
-| `wget -qO- https://www.mongodb.org/static/pgp/server-5.0.asc | sudo tee /etc/apt/trusted.gpg.d/myrepo.asc` |
-| `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list` |
+| `wget -qO- https://www.mongodb.org/static/pgp/server-5.0.asc \| sudo tee /etc/apt/trusted.gpg.d/myrepo.asc` |
+| `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" \| sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list` |
 | `sudo apt update` |
 
-## Install MongoDB:
+## Install MongoDB
 
 | Bash |
 | ---- |
@@ -29,14 +29,14 @@ Try these commands:
 
 | Bash |
 | ---- |
-| `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d | sudo tee /etc/init.d/mongodb >/dev/null` |
+| `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d \| sudo tee /etc/init.d/mongodb >/dev/null` |
 | `sudo chmod +x /etc/init.d/mongodb` |
 
 If the error `Restarting database: mongod failed` occurs when trying to start mongo with the command `sudo service mongodb start` try it:
 
 | Bash |
 | ---- |
-| `curl https://raw.githubusercontent.com/mongodb/mongo/cad54eb5ebdff24ecec53b56788cd151d8d64272/debian/init.d >/dev/null | sudo tee /etc/init.d/mongodb |
+| `curl https://raw.githubusercontent.com/mongodb/mongo/cad54eb5ebdff24ecec53b56788cd151d8d64272/debian/init.d >/dev/null \| sudo tee /etc/init.d/mongodb` |
 | `sudo chmod +x /etc/init.d/mongodb` |
 
 ## Run a Mongo instance
