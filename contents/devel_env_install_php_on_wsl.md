@@ -9,6 +9,7 @@ Check it:
 | Bash |
 | ---- |
 | `sudo service apache2 restart` |
+| `cd /var/www/html` |
 | `sudo nano index.php` |
 
 | [Nano](https://www.nano-editor.org/) |
@@ -21,5 +22,4 @@ Remove phpinfo index.php:
 
 | Bash |
 | ---- |
-| `cd /var/www/html` |
 | `sudo rm index.php` |
