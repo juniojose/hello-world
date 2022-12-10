@@ -25,21 +25,32 @@ Confirm installation and get the version number:
 
 ## Add the init script to start MongoDB as a service
 
+Try these commands:
+
 | Bash |
 | ---- |
 | `curl https://raw.githubusercontent.com/mongodb/mongo/master/debian/init.d | sudo tee /etc/init.d/mongodb >/dev/null` |
 | `sudo chmod +x /etc/init.d/mongodb` |
 
-Open Hyper and go to your home directory and create a directory to store data:
+If the error `Restarting database: mongod failed` occurs when trying to start mongo with the command `sudo service mongodb start` try it:
 
 | Bash |
 | ---- |
-| `mkdir -p ~/data/db` |
+| `curl https://raw.githubusercontent.com/mongodb/mongo/cad54eb5ebdff24ecec53b56788cd151d8d64272/debian/init.d >/dev/null | sudo tee /etc/init.d/mongodb |
+| `sudo chmod +x /etc/init.d/mongodb` |
 
-Run a Mongo instance:
+## Run a Mongo instance
 
 | Bash |
 | ---- |
 | `sudo service mongodb start` |
+
+Check if it worked:
+
+| Bash |
+| ---- |
+| `mongo --eval 'db.runCommand({ connectionStatus: 1 })'` |
+
+A value of 1 for the "ok" field in the response indicates that the server is working.
 
 For more details see [Install MongoDB](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-database#install-mongodb) and [MongoDB Installation Tutorials](https://www.mongodb.com/docs/manual/installation/#mongodb-installation-tutorials).
