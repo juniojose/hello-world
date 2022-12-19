@@ -25,3 +25,5 @@
 [Install Wordpress on WSL](/contents/devel_env_install_wordpress_on_wsl.md)
 
 [Install Node.js on WSL](/contents/devel_env_install_node_on_wsl.md)
+
+[Install PostgreSQL on WSL](/contents/devel_env_install_postgres_on_wsl.md)
