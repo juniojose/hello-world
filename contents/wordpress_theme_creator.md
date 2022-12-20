@@ -1,4 +1,4 @@
-# Wordpress
+# Wordpress Theme Creator
 
 ## Create a classic template
 
