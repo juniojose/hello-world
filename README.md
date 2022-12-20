@@ -36,6 +36,8 @@ SOFTWARE.
 
 [Node.js contents](/contents/nodejs.md)
 
+[Wordpress theme creator](/contents/wordpress_theme_creator.md)
+
 ## Did you like this content? Buy me a coffee
 
 Support the author to create more educational materials. Send me a Brazilian PIX.
