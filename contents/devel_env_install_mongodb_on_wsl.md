@@ -7,8 +7,8 @@
 | `cd ~` |
 | `sudo apt update` |
 | `sudo apt install gnupg2 wget curl` |
-| `wget -qO- https://www.mongodb.org/static/pgp/server-5.0.asc \| sudo tee /etc/apt/trusted.gpg.d/mongodb.asc` |
-| `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" \| sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list` |
+| `wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc \|  gpg --dearmor | sudo tee /usr/share/keyrings/mongodb.gpg > /dev/null` |
+| `echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" \| sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list` |
 | `sudo apt update` |
 
 ## Install MongoDB
