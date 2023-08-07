@@ -4,11 +4,11 @@
 
 [Install Visual Studio Code with Windows Subsystem for Linux](/contents/devel_env_install_vs.md)
 
+[Install Hyper Terminal Command](/contents/devel_env_install_hyper.md)
+
 [Open a WSL project in Visual Studio Code](/contents/devel_env_open_wsl_project_in_vs.md)
 
 [The extensions I use in Visual Studio Code](/contents/devel_env_my_vs_extensions_on_wsl.md)
-
-[Install Hyper Terminal Command](/contents/devel_env_install_hyper.md)
 
 [Install GIT on WSL](/contents/devel_env_install_git_on_wsl.md)
 
